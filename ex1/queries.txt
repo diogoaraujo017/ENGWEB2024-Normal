@@ -1,0 +1,13 @@
+ 1. Através do comando `db.contratos.countDocuments({})` consegui
+    verificar que existem 36377 registos na base de dados.
+
+ 2. Através do comando `db.contratos.countDocuments({ "tipoprocedimento": "Ajuste Direto Regime Geral" })` consegui
+    verificar que existem 17067 registo de contratos com o valor
+    "Ajuste Direto Regime Geral" no campo "tipodeprocedimento".
+
+ 3. Através do comando `db.contratos.distinct("entidade_comunicante").sort()` consegui verificar a lista ordenada alfabeticamente e sem repetições das entidades comunicantes.
+    
+ 4. Através do comando `db.contratos.aggregate([{$group: {_id: "$tipoprocedimento",count: { $sum: 1 }}}])` consegui verificar a distribuição de contratos por tipo de procedimento!
+
+ 5. Através do comando `db.contratos.aggregate([{$group: {_id: "$entidade_comunicante",totalMontante: {$sum: "$precoContratual"}}}])` consegui verificar o montante global por entidade comunicante!
+
